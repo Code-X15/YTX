@@ -1,0 +1,44 @@
+*.iml
+.gradle
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+*.jks
+*.keystore
+*.p12
+*.google-services.json
+google-services.json
+# Python cache
+__pycache__/
+*.pyc
+
+# IDE files
+.vscode/
+.idea/
+
+# OS system files
+.DS_Store
+Thumbs.db
+
+# Android Studio / Build artifacts
+*.apk
+build/
+dist/
+.gradle/
+local.properties
+*.iml
+captures/
+.externalNativeBuild/
+
+# Miscellaneous
+*.log
+*.tmp

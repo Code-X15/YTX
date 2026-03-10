@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <title>YTX → Red Thunder Smooth Animation</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: system-ui, sans-serif;
+      overflow: hidden;
+    }
+
+    .loader {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ytx {
+      position: absolute;
+      font-size: 110px;
+      font-weight: 900;
+      letter-spacing: 12px;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: ytxCharge 3.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      z-index: 2;
+    }
+
+    .thunderbolt {
+      position: absolute;
+      opacity: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: thunderAppear 3.5s cubic-bezier(0.22, 0.61, 0.36, 1) 1.2s forwards;
+      z-index: 4;
+    }
+
+    .thunderbolt svg {
+      width: 280px;
+      height: 280px;
+      stroke: #ff0000;
+      stroke-width: 15; /* Adjusted for better visibility in SVG viewport */
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+      filter: drop-shadow(0 0 25px #ff000088) drop-shadow(0 0 50px #ff000044);
+    }
+
+    .flash {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 50%, #ff000055 8%, transparent 65%);
+      opacity: 0;
+      border-radius: 50%;
+      pointer-events: none;
+      animation: flashEffect 3.5s ease-out 1.3s forwards;
+      z-index: 0;
+    }
+
+    /* YTX gentle charge & fade out */
+    @keyframes ytxCharge {
+      0%    { opacity: 0; transform: scale(0.9); }
+      10%   { opacity: 1; transform: scale(1.06); }
+      15%, 25%, 35% {
+        transform: translateX(3px) scale(1.04);
+      }
+      45%   { transform: scale(1); opacity: 1; }
+      60%, 100% {
+        opacity: 0;
+        transform: scale(0.82) translateY(-70px);
+      }
+    }
+
+    /* Thunderbolt strikes smoothly with energy */
+    @keyframes thunderAppear {
+      0%, 20% {
+        opacity: 0;
+        transform: scale(0.55) rotate(-12deg) translateY(-90px);
+      }
+      32%   { opacity: 1; transform: scale(1.12) rotate(0deg) translateY(0); }
+      38%   { transform: scale(0.97) rotate(3deg); }
+      50%, 100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+      }
+    }
+
+    @keyframes flashEffect {
+      0%    { opacity: 0; }
+      4%    { opacity: 0.9; }
+      20%   { opacity: 0; }
+      100%  { opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="loader">
+    <div class="ytx">YTX</div>
+
+    <div class="thunderbolt">
+      <!-- Thick, bold red thunderbolt SVG (zigzag style) -->
+      <svg viewBox="0 0 100 140">
+        <path d="M 20 5 L 80 55 L 40 55 L 85 110 L 25 55 L 70 55 Z" />
+      </svg>
+    </div>
+
+    <div class="flash"></div>
+  </div>
+
+</body>
+</html>
